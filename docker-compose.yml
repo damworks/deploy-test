@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: test-local-web
+    ports:
+      - "90:80"
+    volumes:
+      - ./:/usr/share/nginx/html
+    restart: unless-stopped
