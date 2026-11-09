@@ -3,7 +3,7 @@ services:
     image: nginx:alpine
     container_name: test-local-web
     ports:
-      - "90:80"
+      - "${WEB_PORT}:80"
     volumes:
-      - ./:/usr/share/nginx/html
+      - ${WEB_DOCUMENT_ROOT}:/usr/share/nginx/html
     restart: unless-stopped
