@@ -27,7 +27,7 @@ jobs:
             cd /var/www/deploy-test/stage
             git pull origin develop
             docker compose pull
-            docker compose up -d --build
+            docker compose --env-file .env.dev up -d --build
 
       - name: Deploy to Production (master)
         if: github.ref == 'refs/heads/master'
@@ -42,4 +42,4 @@ jobs:
             cd /var/www/deploy-test/prod
             git pull origin master
             docker compose pull
-            docker compose up -d --build
+            docker compose --env-file .env.prod up -d --build
